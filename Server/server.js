@@ -1,10 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
+const cors = require('cors');
 require("colors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/config");
 const app = express();
+
+app.use(cors({
+    origin:"https://pizza-frontend.onrender.com/"
+}))
 
 //dotenv config
 dotenv.config();
