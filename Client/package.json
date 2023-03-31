@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "proxy": "http://localhost:4040",
+  "proxy": "https://pizza-server-tls3.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
