@@ -8,7 +8,7 @@ const connectDB = require("./config/config");
 const app = express();
 
 app.use(cors({
-    origin:"https://pizza-frontend.onrender.com/"
+    origin:"https://pizza-frontend.onrender.com"
 }))
 
 //dotenv config
