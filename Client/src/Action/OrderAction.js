@@ -5,7 +5,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
   const currentUser = getState().loginUserReducer.currentUser;
   const cartItems = getState().CartReducer.cartItems;
   try {
-    const res = await axios.post("/api/orders/placeorder", {
+    const res = await axios.post("https://pizza-server-tls3.onrender.com/api/orders/placeorder", {
       token,
       subTotal,
       currentUser,
@@ -25,7 +25,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
     type: "USER_ORDER_REQUEST",
   });
   try {
-    const res = await axios.post("/api/orders/getuserorder", {
+    const res = await axios.post("https://pizza-server-tls3.onrender.com/api/orders/getuserorder", {
       userid: currentUser._id,
     });
     console.log(res);
@@ -48,7 +48,7 @@ export const getAllOrders = () => async (dispatch, getState) => {
     type: "ALL_ORDER_REQUEST",
   });
   try {
-    const res = await axios.get("/api/orders/alluserorders");
+    const res = await axios.get("https://pizza-server-tls3.onrender.com/api/orders/alluserorders");
     dispatch({
       type: "ALL_ORDER_SUCCESS",
       payload: res.data,
@@ -67,10 +67,10 @@ export const deliverOrders = (orderId) => async (dispatch, getState) => {
     type: "GET_ALL_ORDER_REQUEST",
   });
   try {
-    const res = await axios.post("/api/orders/deliverorder",{orderId});
+    const res = await axios.post("https://pizza-server-tls3.onrender.com/api/orders/deliverorder",{orderId});
     console.log(res);
     swal('Deliver Success')
-    const order = await axios.get("/api/orders/alluserorders");
+    const order = await axios.get("https://pizza-server-tls3.onrender.com/api/orders/alluserorders");
     dispatch({
       type: "GET_ALL_ORDER_SUCCESS",
       payload: order.data,
